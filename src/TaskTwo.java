@@ -2,11 +2,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TaskTwo {
-
 
     public static void jsonToFile() throws IOException {
         Gson jsonFile = new GsonBuilder().setPrettyPrinting().create();
@@ -23,16 +21,12 @@ public class TaskTwo {
             Person person = new Person();
             person.setName(arr[0]);
             person.setAge(Integer.parseInt(arr[1]));
-
-             s = s + jsonFile.toJson(person) + "\n";
-            try (FileWriter writer = new FileWriter("namesJson.txt")){
+            s = s + jsonFile.toJson(person) + "\n";
+            try (FileWriter writer = new FileWriter("namesJson.txt")) {
                 writer.write(s);
                 writer.flush();
             }
-
         }
-
-
     }
 }
 
